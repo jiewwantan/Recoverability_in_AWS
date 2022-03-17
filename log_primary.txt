@@ -1,0 +1,61 @@
+PS C:\Users\jieww\Documents\MyStudies\Nanodegree\CloudArchitectND> ssh -i cloud_archi.pem ubuntu@ec2-54-188-28-206.us-west-2.compute.amazonaws.com
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1022-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com     
+ * Support:        https://ubuntu.com/advantage        
+
+  System information as of Thu Mar 17 04:06:29 UTC 2022
+
+  System load:  0.0               Processes:             103
+  Usage of /:   25.5% of 7.69GB   Users logged in:       0
+  Memory usage: 21%               IPv4 address for eth0: 10.1.10.152  
+  Swap usage:   0%
+
+ * Ubuntu Pro delivers the most comprehensive open source security and
+   compliance features.
+
+   https://ubuntu.com/aws/pro
+
+99 updates can be applied immediately.
+62 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+
+Last login: Wed Mar 16 17:45:40 2022 from 113.211.208.220
+ubuntu@ip-10-1-10-152:~$ mysql -u admin -h database-1.c2gd1cgnw4k7.us-west-2.rds.amazonaws.com -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 36
+Server version: 8.0.27 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.       
+
+MySQL [(none)]> use udacity
+Database changed
+MySQL [udacity]> CREATE TABLE sample_table (message CHAR(20));
+Query OK, 0 rows affected (0.074 sec)
+
+MySQL [udacity]> show tables;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| sample_table      |
++-------------------+
+1 row in set (0.002 sec)
+
+MySQL [udacity]> INSERT INTO sample_table VALUES ('HELLO WORLD');
+Query OK, 1 row affected (0.013 sec)
+
+MySQL [udacity]> SELECT * FROM sample_table
+    -> ;
++-------------+
+| message     |
++-------------+
+| HELLO WORLD |
++-------------+
+1 row in set (0.001 sec)
+
+MySQL [udacity]> 

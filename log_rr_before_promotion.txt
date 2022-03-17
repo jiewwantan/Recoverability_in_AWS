@@ -1,0 +1,52 @@
+PS C:\Users\jieww\Documents\MyStudies\Nanodegree\CloudArchitectND> ssh -i cloud_archi_2.pem ubuntu@ec2-54-146-248-227.compute-1.amazonaws.com
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1022-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Mar 17 04:02:33 UTC 2022
+
+  System load:  0.0               Processes:             103
+  Usage of /:   21.0% of 7.69GB   Users logged in:       1
+  Memory usage: 23%               IPv4 address for eth0: 10.2.10.56
+  Swap usage:   0%
+
+ * Ubuntu Pro delivers the most comprehensive open source security and
+   compliance features.
+
+   https://ubuntu.com/aws/pro
+
+99 updates can be applied immediately.
+62 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+
+Last login: Thu Mar 17 02:13:00 2022 from 113.211.208.220
+ubuntu@ip-10-2-10-56:~$ mysql -u admin -h database-1-replica.czzuccsjwg1f.us-east-1.rds.amazonaws.com -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 23
+Server version: 8.0.27 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> use udacity
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A                       not execute this s
+
+Database changed
+MySQL [udacity]> INSERT INTO sample_table VALUES ('HI WORLD SECONDARY');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+MySQL [udacity]> SELECT * FROM sample_table
+    -> ;
++-------------+
+| message     |
++-------------+
+| HELLO WORLD |
++-------------+
+1 row in set (0.001 sec)
+
+MySQL [udacity]> 
